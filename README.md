@@ -1,4 +1,4 @@
-# SCACE - Sistema de Caślculo de Custo de Entrega
+# SCACE - Sistema de Calculo de Custo de Entrega
 
 Sistema web desenvolvido com o objetivo de facilitar o calculo de custos para entregadores que atuam em plataformas como Mercado Livre, Shopee, IFood, 99 e dentre outras. Permite gerenciar agencias, veiculos, usuarios e rotas, alem de permitir calcular o gasto de combustivel de cada rota realizada.
 
@@ -31,7 +31,7 @@ Sistema web desenvolvido com o objetivo de facilitar o calculo de custos para en
 ### Clonagem do repositorio
 
 ```bash
-git clone https://github.com/seu-usuario/scace.git
+git clone https://github.com/guilhermessalustiano/scace.git
 cd scace
 ```
 
