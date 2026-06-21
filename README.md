@@ -1,14 +1,14 @@
-# SCACE - Sistema de Calculo de Custo de Entrega
+# SCACE - Sistema de Cálculo de Custo de Entrega
 
-Sistema web desenvolvido com o objetivo de facilitar o calculo de custos para entregadores que atuam em plataformas como Mercado Livre, Shopee, IFood, 99 e dentre outras. Permite gerenciar agencias, veiculos, usuarios e rotas, alem de permitir calcular o gasto de combustivel de cada rota realizada.
+Sistema web desenvolvido com o objetivo de facilitar o cálculo de custos para entregadores que atuam em plataformas como Mercado Livre, Shopee, IFood, 99 e dentre outras. Permite gerenciar agências, veículos, usuários e rotas, além de permitir calcular o gasto de combust+ivel de cada rota realizada.
 
 ## Funcionalidades
 
-- Controle de usuarios
-- Gerenciamento de veiculos disponiveis
-- Cadastro de agencias de retirada de mercadorias
+- Controle de usuários
+- Gerenciamento de veículos disponíveis
+- Cadastro de agências de retirada de mercadorias
 - Controle de rotas realizadas
-- Calculo de custo de combustivel por rota
+- Cálculo de custo de combustível por rota
 
 ## Tecnologias
 
@@ -19,23 +19,23 @@ Sistema web desenvolvido com o objetivo de facilitar o calculo de custos para en
 | Banco      | MySQL / MariaDB                   |
 | Produção   | Nginx, PM2                        |
 
-## Instalaçao
+## Instalação
 
 ### Requisitos:
 
 - **Node.js** 18 ou superior (recomendado 24)
-- **MariaDB** 10.6 ou superior (recomendado 10.11) OU MySQL 8 ou Superior
+- **MariaDB** 10.6 ou superior (recomendado 10.11) OU MySQL 8 ou superior
 - **Nginx** (para servir o frontend em produçao)
 - **PM2** (para produção): `npm install -g pm2`
 
-### Clonagem do repositorio
+### Clonagem do repositório
 
 ```bash
 git clone https://github.com/guilhermessalustiano/scace.git
 cd scace
 ```
 
-### Configuraçao do Backend
+### Configuração do Backend
 
 ```bash
 cd backend
@@ -46,7 +46,7 @@ npx prisma generate
 npm start              # ou: pm2 start index.js --name scace-backend
 ```
 
-### Configuracao do Frontend
+### Configuração do Frontend
 
 ```bash
 cd ../frontend
@@ -54,6 +54,6 @@ npm install
 npm run build          # gera a pasta dist/
 ```
 
-### Configuraçao do servidor web Nginx
+### Configuração do servidor web Nginx
 
 Apontar para a pasta `frontend/dist` e fazer o proxy de `/api` para `http://localhost:3001`.
