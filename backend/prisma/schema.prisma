@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+
+model Usuario {
+  id          Int      @id @default(autoincrement())
+  username    String   @unique
+  nome        String
+  email       String   @unique
+  senha_hash  String
+  telefone    String
+
+  rotas Rota[]
+}
+
+model Veiculo {
+  placa             String   @id 
+  marca             String
+  modelo            String
+  ano               Int
+  tipo_combustivel  String
+
+  rotas Rota []
+}
+
+model Agencia {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  descricao String
+
+  rotas Rota []
+  endereco Endereco_agencia?
+}
+
+model Rota {
+  id            Int     @id @default(autoincrement())
+  fk_usuario    Int   
+  fk_agencia    Int   
+  veiculo_placa String 
+  dia           DateTime  @db.Date
+  hora_marcada  String
+  hora_inicio   String
+  hora_fim      String
+  distancia_km  Float
+  consumo_kml   Float
+  valor         Float
+
+  usuario Usuario @relation(fields: [fk_usuario], references: [id])
+  agencia Agencia @relation(fields: [fk_agencia], references: [id])
+  veiculo Veiculo @relation(fields: [veiculo_placa], references: [placa])
+  custo   Custo?
+}
+
+model Custo {
+  fk_rota           Int    @id
+  preco_combustivel Float
+  custo_total       Float
+
+  rota Rota @relation(fields: [fk_rota], references: [id])
+}
+
+model Endereco_agencia {
+  fk_agencia      Int @id
+  cep             String
+  tipo_logradouro String
+  logradouro      String
+  numero          Int
+  complemento     String
+  municipio       String
+  estado          String
+
+  agencia Agencia @relation(fields: [fk_agencia], references: [id])
+}
