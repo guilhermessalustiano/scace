@@ -19,6 +19,7 @@ function Login({ onLogin }) {
         try {
             const { data } = await api.post('/login', { username, senha });
             localStorage.setItem('token', data.token);
+            localStorage.setItem('usuario', JSON.stringify(data.usuario));
             onLogin(data.usuario);
         } catch (err) {
             const mensagem = err.response?.data?.erro || 'Erro ao conectar com o servidor.';

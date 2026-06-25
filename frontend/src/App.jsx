@@ -25,10 +25,12 @@ function App() {
         if (decoded.exp > agora) {
           setAutenticado(true); // token ainda válido
         } else {
-          localStorage.removeItem('token'); // expirado
+          localStorage.removeItem('token');
+          localStorage.removeItem('usuario'); // expirado
         }
       } catch {
-        localStorage.removeItem('token'); // token corrompido
+        localStorage.removeItem('token');
+        localStorage.removeItem('usuario'); // token corrompido
       }
     }
     setCarregando(false);
@@ -40,6 +42,7 @@ function App() {
 
   function handleLogout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
     setAutenticado(false);
   }
 
